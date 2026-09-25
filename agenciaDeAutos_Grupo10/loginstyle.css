@@ -445,3 +445,104 @@ footer {
     padding-right: 24px;
   }
 }
+
+/* ==========================================================================
+   Inicio de sesión
+   ========================================================================== */
+
+#login-section {
+  min-height: 82vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 24px;
+}
+
+.login-card {
+  width: 100%;
+  max-width: 420px;
+  background: var(--bg-elevada);
+  border: 1px solid var(--borde);
+  border-radius: 4px;
+  padding: 44px 40px;
+  text-align: center;
+}
+
+.login-card h1 {
+  font-family: var(--fuente-display);
+  font-size: 2rem;
+  margin: 0 0 10px;
+}
+
+.login-subtitle {
+  color: var(--texto-tenue);
+  font-size: 0.9rem;
+  margin: 0 0 32px;
+}
+
+.login-card form {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+
+.login-card label {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--texto-tenue);
+  margin-bottom: 8px;
+}
+
+.login-card input {
+  background: var(--bg);
+  border: 1px solid var(--borde);
+  border-radius: 2px;
+  padding: 13px 14px;
+  margin-bottom: 20px;
+  color: var(--texto);
+  font-family: var(--fuente-texto);
+  font-size: 0.95rem;
+  transition: border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.login-card input::placeholder {
+  color: #5a5a60;
+}
+
+.login-card input:focus {
+  outline: none;
+  border-color: var(--rojo);
+  box-shadow: 0 0 14px var(--rojo-glow);
+}
+
+.login-olvide {
+  align-self: flex-end;
+  font-size: 0.78rem;
+  color: var(--texto-tenue);
+  margin: -8px 0 26px;
+  transition: color 0.25s ease;
+}
+
+.login-olvide:hover {
+  color: var(--rojo);
+}
+
+.btn-login {
+  width: 100%;
+  border: none;
+  cursor: pointer;
+  margin-right: 0;
+}
+
+.login-registro {
+  margin: 28px 0 12px;
+  font-size: 0.85rem;
+  color: var(--texto-tenue);
+}
+
+.btn-registro {
+  display: block;
+  width: 100%;
+}

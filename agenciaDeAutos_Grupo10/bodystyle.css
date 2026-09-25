@@ -1,0 +1,442 @@
+/* ==========================================================================
+   LUJO LUJITOS — hoja de estilos
+   Paleta: negro profundo + blanco + rojo neón
+   ========================================================================== */
+
+:root {
+  --bg: #0a0a0c;
+  --bg-elevada: #131316;
+  --borde: #232327;
+  --texto: #f5f5f0;
+  --texto-tenue: #a3a3ab;
+  --rojo: #ff1f3d;
+  --rojo-glow: rgba(255, 31, 61, 0.65);
+  --fuente-display: "Playfair Display", Georgia, "Times New Roman", serif;
+  --fuente-texto: "Inter", "Helvetica Neue", Arial, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--texto);
+  font-family: var(--fuente-texto);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+/* ==========================================================================
+   Header / navegación
+   ========================================================================== */
+
+header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 22px 48px;
+  background: rgba(10, 10, 12, 0.85);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--borde);
+}
+
+header nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.logo {
+  font-family: var(--fuente-display);
+  font-size: 1.4rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: var(--texto);
+}
+
+.logo::before {
+  content: "";
+}
+
+header nav ul {
+  display: flex;
+  gap: 36px;
+}
+
+header nav ul li a {
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--rojo);
+  transition: color 0.25s ease, text-shadow 0.25s ease;
+}
+
+header nav ul li a:hover {
+  color: #fff;
+  text-shadow: 0 0 10px var(--rojo-glow), 0 0 22px var(--rojo-glow);
+}
+
+.btn-reservar {
+  padding: 12px 26px;
+  border: 1px solid var(--rojo);
+  border-radius: 2px;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--rojo);
+  background: transparent;
+  transition: all 0.25s ease;
+}
+
+.btn-reservar:hover {
+  color: #0a0a0c;
+  background: var(--rojo);
+  box-shadow: 0 0 18px var(--rojo-glow), 0 0 40px var(--rojo-glow);
+}
+
+/* ==========================================================================
+   Hero — preparado para video de fondo
+   Envolvé el contenido así en el HTML para activar el video:
+   <section id="hero">
+     <video class="hero-video" autoplay muted loop playsinline>
+       <source src="tu-video.mp4" type="video/mp4">
+     </video>
+     <div class="hero-overlay"></div>
+     <div class="hero-contenido"> ...todo el contenido actual del hero... </div>
+   </section>
+   ========================================================================== */
+
+#hero {
+  position: relative;
+  min-height: 88vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0 48px;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.hero-video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -2;
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(10, 10, 12, 0.55) 0%, rgba(10, 10, 12, 0.85) 75%, var(--bg) 100%);
+  z-index: -1;
+}
+
+.hero-contenido {
+  max-width: 760px;
+}
+
+#hero h1 {
+  font-family: var(--fuente-display);
+  font-size: clamp(3rem, 7vw, 5.5rem);
+  font-weight: 700;
+  margin: 0 0 6px;
+  color: var(--texto);
+}
+
+#hero h1 span {
+  color: var(--rojo);
+}
+
+#hero h2 {
+  font-family: var(--fuente-texto);
+  font-weight: 400;
+  font-size: 1.4rem;
+  color: #d8d8dc;
+  max-width: 640px;
+  margin: 0 0 18px;
+}
+
+#hero p {
+  color: var(--texto-tenue);
+  max-width: 560px;
+  font-size: 0.98rem;
+  margin: 0 0 34px;
+}
+
+.btn-explorar {
+  display: inline-block;
+  padding: 16px 34px;
+  margin-right: 24px;
+  background: var(--rojo);
+  color: #0a0a0c;
+  font-weight: 700;
+  font-size: 0.82rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  border-radius: 2px;
+  transition: box-shadow 0.25s ease, transform 0.25s ease;
+}
+
+.btn-explorar:hover {
+  box-shadow: 0 0 20px var(--rojo-glow), 0 0 55px var(--rojo-glow);
+  transform: translateY(-2px);
+}
+
+.tour-virtual {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--texto);
+  transition: color 0.25s ease, text-shadow 0.25s ease;
+}
+
+.tour-virtual::after {
+  content: "▶";
+  color: var(--rojo);
+  font-size: 0.7rem;
+  transition: text-shadow 0.25s ease;
+}
+
+.tour-virtual:hover {
+  color: #fff;
+}
+
+.tour-virtual:hover::after {
+  text-shadow: 0 0 10px var(--rojo-glow);
+}
+
+/* ==========================================================================
+   Galería de modelos
+   ========================================================================== */
+
+#gallery-section,
+#benefits-section {
+  padding: 90px 48px;
+  text-align: center;
+}
+
+.eyebrow {
+  color: var(--rojo);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  margin: 0 0 10px;
+}
+
+.gallery-header h2,
+#benefits-section h2 {
+  font-family: var(--fuente-display);
+  font-size: 2.4rem;
+  font-weight: 700;
+  margin: 0 0 56px;
+}
+
+.gallery-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 32px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.car-card {
+  background: var(--bg-elevada);
+  border: 1px solid var(--borde);
+  border-radius: 4px;
+  padding-bottom: 28px;
+  text-align: left;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.car-card:hover {
+  border-color: var(--rojo);
+  box-shadow: 0 0 30px rgba(255, 31, 61, 0.18);
+  transform: translateY(-4px);
+}
+
+.car-card img {
+  width: 100%;
+  height: 230px;
+  object-fit: cover;
+  background: #1a1a1e;
+  border-bottom: 1px solid var(--borde);
+}
+
+.car-card .marca {
+  margin: 22px 26px 2px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  color: var(--rojo);
+}
+
+.car-card h3 {
+  margin: 0 26px 18px;
+  font-family: var(--fuente-display);
+  font-size: 1.7rem;
+}
+
+.car-card ul {
+  margin: 0 26px 20px;
+  border-top: 1px solid var(--borde);
+  padding-top: 16px;
+}
+
+.car-card ul li {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.85rem;
+  padding: 6px 0;
+  color: var(--texto-tenue);
+}
+
+.car-card ul li span:last-child {
+  color: var(--texto);
+  font-weight: 500;
+}
+
+.precio-label {
+  margin: 0 26px 2px;
+  font-size: 0.68rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--texto-tenue);
+}
+
+.precio {
+  margin: 0 26px 20px;
+  font-family: var(--fuente-display);
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--texto);
+}
+
+.car-card > a {
+  display: block;
+  margin: 0 26px;
+  padding: 12px 0;
+  text-align: center;
+  border: 1px solid var(--rojo);
+  border-radius: 2px;
+  color: var(--rojo);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  transition: all 0.25s ease;
+}
+
+.car-card > a:hover {
+  background: var(--rojo);
+  color: #0a0a0c;
+  box-shadow: 0 0 18px var(--rojo-glow);
+}
+
+/* ==========================================================================
+   Beneficios
+   ========================================================================== */
+
+.benefits-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 40px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.benefit-card {
+  text-align: center;
+  padding: 10px;
+}
+
+.benefit-card img {
+  width: 84px;
+  height: 84px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin: 0 auto 22px;
+  border: 1px solid var(--rojo);
+  padding: 6px;
+}
+
+.benefit-card h3 {
+  font-family: var(--fuente-display);
+  font-size: 1.25rem;
+  margin: 0 0 12px;
+}
+
+.benefit-card p {
+  color: var(--texto-tenue);
+  font-size: 0.92rem;
+  max-width: 320px;
+  margin: 0 auto;
+}
+
+/* ==========================================================================
+   Footer
+   ========================================================================== */
+
+footer {
+  padding: 32px 48px;
+  text-align: center;
+  border-top: 1px solid var(--borde);
+  color: var(--texto-tenue);
+  font-size: 0.82rem;
+  letter-spacing: 0.06em;
+}
+
+/* ==========================================================================
+   Responsive
+   ========================================================================== */
+
+@media (max-width: 720px) {
+  header {
+    flex-wrap: wrap;
+    gap: 16px;
+    padding: 18px 24px;
+  }
+
+  header nav ul {
+    display: none;
+  }
+
+  #hero,
+  #gallery-section,
+  #benefits-section {
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+}

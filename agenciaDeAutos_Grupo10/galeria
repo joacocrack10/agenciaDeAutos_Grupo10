@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="estilo.css">
+    <title>Galería de Autos</title>
+</head>
+
+<body>
+
+    <h1>Galería de Autos</h1>
+
+    <p>A continuación se mostrarán los distintos modelos de autos.</p>
+
+    <h2>Modelos Ferrari</h2>
+
+    <div class="img-container">
+        <img src="https://www.ferrari.com/images/auto/roma/roma-hero-desktop.jpg" alt="Ferrari Roma" width="300" height="200">
+        <h3>Roma</h3>
+        <p>Motor: V8</p>
+        <p>Potencia: 600 CV</p>
+        <p>Año: 2025</p>
+    </div>
+
+    <div class="img-container">
+        <img src="https://www.ferrari.com/images/auto/laferrai/laferrai-hero-desktop.jpg" alt="Ferrari LaFerrari" width="300" height="200">
+        <h3>LaFerrari</h3>
+        <p>Motor: V8</p>
+        <p>Potencia: 600 CV</p>
+        <p>Año: 2025</p>
+    </div>
+
+    <div class="img-container">
+        <img src="https://www.ferrari.com/images/auto/f40/f40-hero-desktop.jpg" alt="Ferrari F40" width="300" height="200">
+        <h3>F40</h3>
+        <p>Motor: V8</p>
+        <p>Potencia: 600 CV</p>
+        <p>Año: 2025</p>
+    </div>
+
+
+    <h2>Modelos Lamborghini</h2>
+
+    <div class="img-container">
+        <img src="https://www.lamborghini.com/images/auto/urus/urus-hero-desktop.jpg" alt="Lamborghini Urus" width="300" height="200">
+        <h3>Urus</h3>
+        <p>Motor: V8</p>
+        <p>Potencia: 600 CV</p>
+        <p>Año: 2025</p>
+    </div>
+
+    <div class="img-container">
+        <img src="https://www.lamborghini.com/images/auto/aventador/aventador-hero-desktop.jpg" alt="Lamborghini Aventador" width="300" height="200">
+        <h3>Aventador</h3>
+        <p>Motor: V12</p>
+        <p>Potencia: 700 CV</p>
+        <p>Año: 2025</p>
+    </div>
+
+    <div class="img-container">
+        <img src="https://www.lamborghini.com/images/auto/huracan/huracan-hero-desktop.jpg" alt="Lamborghini Huracán" width="300" height="200">
+        <h3>Huracán</h3>
+        <p>Motor: V10</p>
+        <p>Potencia: 650 CV</p>
+        <p>Año: 2025</p>
+    </div>
+
+
+    <h2>Modelos Koenigsegg</h2>
+
+    <div class="img-container">
+        <img src="https://www.koenigsegg.com/images/agera/agera-hero-desktop.jpg" alt="Koenigsegg Agera" width="300" height="200">
+        <h3>Agera</h3>
+        <p>Motor: V8</p>
+        <p>Potencia: 1000 CV</p>
+        <p>Año: 2025</p>
+    </div>
+
+    <div class="img-container">
+        <img src="https://www.koenigsegg.com/images/regera/regera-hero-desktop.jpg" alt="Koenigsegg Regera" width="300" height="200">
+        <h3>Regera</h3>
+        <p>Motor: V8</p>
+        <p>Potencia: 1500 CV</p>
+        <p>Año: 2025</p>
+    </div>
+
+    <div class="img-container">
+        <img src="https://www.koenigsegg.com/images/gemera/gemera-hero-desktop.jpg" alt="Koenigsegg Gemera" width="300" height="200">
+        <h3>Gemera</h3>
+        <p>Motor: V8</p>
+        <p>Potencia: 1700 CV</p>
+        <p>Año: 2025</p>
+    </div>
+
+</body>
+
+</html>

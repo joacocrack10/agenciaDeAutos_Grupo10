@@ -1,0 +1,9 @@
+@use 'variables' as *;
+
+// Estilos generales del proyecto suelto.
+// En el proyecto del grupo esto ya lo resuelve su propio CSS global.
+html,
+body {
+  margin: 0;
+  background-color: $fondo;
+}

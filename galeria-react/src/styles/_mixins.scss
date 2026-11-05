@@ -1,0 +1,5 @@
+// Fondo + color de letra en una sola línea
+@mixin colores($fondo, $letra) {
+  background-color: $fondo;
+  color: $letra;
+}

@@ -1,0 +1,9 @@
+# Normaliza finales de línea: todos los archivos de texto quedan en LF (en el repo y en cada PC).
+# Evita que git marque archivos como "cambiados" cuando nadie los tocó (pasaba con Windows/CRLF).
+* text=auto eol=lf
+
+*.jpg  binary
+*.jpeg binary
+*.png  binary
+*.avif binary
+*.mp4  binary

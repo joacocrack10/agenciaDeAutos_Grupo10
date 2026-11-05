@@ -1,0 +1,5 @@
+# Archivos del sistema / editor que no van al repo
+.DS_Store
+Thumbs.db
+desktop.ini
+.vscode/

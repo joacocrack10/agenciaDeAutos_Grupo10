@@ -1,0 +1,189 @@
+/* ==========================================================================
+   LUJO LUJITOS — estilos comunes a todas las páginas
+   Paleta: negro profundo + blanco + rojo neón
+   (variables, reset, header/nav, botones, eyebrow, footer)
+   ========================================================================== */
+
+:root {
+  --bg: #0a0a0c;
+  --bg-elevada: #131316;
+  --borde: #232327;
+  --texto: #f5f5f0;
+  --texto-tenue: #a3a3ab;
+  --rojo: #ff1f3d;
+  --rojo-glow: rgba(255, 31, 61, 0.65);
+  --fuente-display: "Playfair Display", Georgia, "Times New Roman", serif;
+  --fuente-texto: "Inter", "Helvetica Neue", Arial, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--texto);
+  font-family: var(--fuente-texto);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+/* ==========================================================================
+   Header / navegación
+   ========================================================================== */
+
+header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 22px 48px;
+  background: rgba(10, 10, 12, 0.85);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--borde);
+}
+
+header nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.logo {
+  font-family: var(--fuente-display);
+  font-size: 1.4rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: var(--texto);
+}
+
+.logo::before {
+  content: "";
+}
+
+header nav ul {
+  display: flex;
+  gap: 36px;
+}
+
+header nav ul li a {
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--rojo);
+  transition: color 0.25s ease, text-shadow 0.25s ease;
+}
+
+header nav ul li a:hover {
+  color: #fff;
+  text-shadow: 0 0 10px var(--rojo-glow), 0 0 22px var(--rojo-glow);
+}
+
+.btn-reservar {
+  padding: 12px 26px;
+  border: 1px solid var(--rojo);
+  border-radius: 2px;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--rojo);
+  background: transparent;
+  transition: all 0.25s ease;
+}
+
+.btn-reservar:hover {
+  color: #0a0a0c;
+  background: var(--rojo);
+  box-shadow: 0 0 18px var(--rojo-glow), 0 0 40px var(--rojo-glow);
+}
+
+/* ==========================================================================
+   Botón principal
+   ========================================================================== */
+
+.btn-explorar {
+  display: inline-block;
+  padding: 16px 34px;
+  margin-right: 24px;
+  background: var(--rojo);
+  color: #0a0a0c;
+  font-weight: 700;
+  font-size: 0.82rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  border-radius: 2px;
+  transition: box-shadow 0.25s ease, transform 0.25s ease;
+}
+
+.btn-explorar:hover {
+  box-shadow: 0 0 20px var(--rojo-glow), 0 0 55px var(--rojo-glow);
+  transform: translateY(-2px);
+}
+
+/* ==========================================================================
+   Etiqueta chica sobre los títulos
+   ========================================================================== */
+
+.eyebrow {
+  color: var(--rojo);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  margin: 0 0 10px;
+}
+
+/* ==========================================================================
+   Footer
+   ========================================================================== */
+
+footer {
+  padding: 32px 48px;
+  text-align: center;
+  border-top: 1px solid var(--borde);
+  color: var(--texto-tenue);
+  font-size: 0.82rem;
+  letter-spacing: 0.06em;
+}
+
+/* ==========================================================================
+   Responsive
+   ========================================================================== */
+
+@media (max-width: 720px) {
+  header {
+    flex-wrap: wrap;
+    gap: 16px;
+    padding: 18px 24px;
+  }
+
+  header nav ul {
+    display: none;
+  }
+}

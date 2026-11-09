@@ -1,0 +1,136 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #000000;
+    margin: 0;
+}
+
+header {
+    background-color: #111111;
+    color: white;
+    text-align: center;
+    padding: 30px;
+}
+
+header h1 {
+    color: red;
+    font-size: 45px;
+    margin: 0;
+}
+
+header p {
+    color: orange;
+    font-size: 18px;
+}
+
+
+h2 {
+    text-align: center;
+    color: white;
+    margin-top: 40px;
+    font-size: 30px;
+}
+
+
+html {
+    background-color: #000000;
+}
+
+
+/* GALERÍA */
+
+.galeria {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 25px;
+    margin: 30px 20px 50px;
+}
+
+
+
+
+.auto {
+    background-color: rgb(16, 16, 16);
+    border: 3px solid rgb(13, 13, 13);
+    width: 300px;
+    text-align: center;
+    padding-bottom: 15px;
+    overflow: hidden;
+    transition: transform 0.5s ease, box-shadow 0.5s ease;
+}
+
+
+/*  el cursor */
+
+.auto:hover {
+    transform: translateY(-8px);
+    box-shadow: 0px 10px 30px rgba(255, 255, 255, 0.25);
+}
+
+
+
+.auto img {
+    width: 300px;
+    height: 200px;
+    object-fit: cover;
+
+    transition: transform 0.6s ease;
+}
+
+
+.auto:hover img {
+    transform: scale(1.12);
+}
+
+
+.auto h3 {
+    font-size: 24px;
+    margin: 10px;
+    color: white;
+}
+
+
+.auto p {
+    margin: 0;
+    padding: 10px;
+    color: white;
+}
+
+
+
+/* Datos de cada auto: el color sale de la marca de la sección.
+   Para una marca nueva: agregar la clase al <div class="galeria ..."> y su color acá abajo. */
+
+.galeria .auto p {
+    background-color: var(--color-marca);
+    color: white;
+}
+
+.galeria .auto p:first-of-type {
+    border-radius: 10px 10px 0 0;
+}
+
+.galeria .auto p:last-of-type {
+    border-radius: 0 0 10px 10px;
+}
+
+.galeria .auto p.precio {
+    font-weight: bold;
+}
+
+.galeria.ferrari      { --color-marca: #8b0000; }
+.galeria.lamborghini  { --color-marca: #064d2a; }
+.galeria.koenigsegg   { --color-marca: #003366; }
+.galeria.porsche      { --color-marca: #7a5a00; }
+.galeria.mercedes     { --color-marca: #3d4248; }
+
+
+
+
+footer {
+    background-color: #111111;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    margin-top: 50px;
+}

@@ -1,0 +1,19 @@
+{
+  "modelos": [
+    { "id": "1", "nombre": "Amani G-600 Carbon Edition" },
+    { "id": "2", "nombre": "Amani V-8 Hyperion" },
+    { "id": "3", "nombre": "Amani Electric Stealth" },
+    { "id": "4", "nombre": "Amani GT Superleggera" }
+  ],
+  "turnos": [],
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "lint": "eslint .",
+    "preview": "vite preview",
+    "services": "json-server db.json --port 4000"
+
+  }
+
+
+}

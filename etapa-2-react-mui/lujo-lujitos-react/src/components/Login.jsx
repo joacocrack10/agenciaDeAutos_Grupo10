@@ -16,19 +16,16 @@ function Login({ abierto, cerrar, sesion, setSesion }) {
 
   function manejarEnvio(e) {
     e.preventDefault(); // evita que la página se recargue
-    if (password.length < 6) {
-      setError('La contraseña debe tener al menos 6 caracteres.');
-      return;
-    }
     if (!acepto) {
       setError('Tenés que aceptar los términos para ingresar.');
       return;
     }
-    setSesion({ email }); // se guarda en localStorage (solo el email, nunca la contraseña)
+    setSesion({ email: email.trim() }); // se guarda en localStorage (solo el email, nunca la contraseña)
     setEmail('');
     setPassword('');
     setAcepto(false);
     setError('');
+    cerrar();
   }
 
   function cerrarSesion() {

@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Guía de estudio — código React</title>
+<style>
+  :root {
+    --bg: #0a0a0c; --text: #f3f1ea; --muted: #b4b4bc; --red: #ff1f3d;
+    --line: #2c2c33; --ok: #d7c4a3; --code: #0c0c0f;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { margin: 0; background: var(--bg); color: var(--text); font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif; line-height: 1.55; }
+  a { color: #ffb4c0; }
+  .marco { display: grid; grid-template-columns: 270px 1fr; min-height: 100vh; }
+  nav { position: sticky; top: 0; height: 100vh; overflow: auto; border-right: 1px solid var(--line); padding: 22px 16px 40px; background: #0e0e12; }
+  nav .marca { font-family: Georgia, serif; letter-spacing: .08em; font-size: 14px; margin: 0 0 6px; }
+  nav .marca span { color: var(--red); }
+  nav p.aviso { color: var(--muted); font-size: 13px; margin: 0 0 14px; }
+  nav input { width: 100%; background: #101014; color: var(--text); border: 1px solid var(--line); padding: 8px 10px; font: inherit; font-size: 14px; margin-bottom: 14px; }
+  nav a { display: block; color: var(--muted); text-decoration: none; font-size: 13.5px; padding: 4px 0; }
+  nav a:hover { color: white; }
+  nav .grupo { color: var(--ok); font-size: 11px; letter-spacing: .14em; text-transform: uppercase; margin: 16px 0 6px; }
+  main { padding: 36px 48px 80px; max-width: 980px; }
+  h1 { font-family: Georgia, serif; font-weight: 600; font-size: clamp(34px, 4vw, 50px); line-height: 1.08; margin: 0 0 12px; }
+  h2 { font-family: Georgia, serif; font-weight: 600; font-size: 32px; margin: 0 0 12px; }
+  h3 { font-size: 20px; margin: 26px 0 8px; }
+  p { color: var(--muted); margin: 0 0 12px; font-size: 17px; }
+  strong { color: var(--text); }
+  ul, ol { color: var(--muted); padding-left: 22px; margin: 8px 0 14px; }
+  li { margin: 6px 0; font-size: 16.5px; }
+  code { font-family: Consolas, ui-monospace, monospace; font-size: .92em; color: #f3d2c4; }
+  pre { background: var(--code); border: 1px solid var(--line); padding: 14px 16px; overflow: auto; color: #f5f5f0; font-size: 13.5px; line-height: 1.5; margin: 10px 0 16px; }
+  pre code { color: inherit; }
+  table { width: 100%; border-collapse: collapse; margin: 10px 0 18px; font-size: 15px; }
+  th, td { text-align: left; padding: 8px 10px; border-bottom: 1px solid var(--line); vertical-align: top; }
+  th { color: var(--ok); font-size: 12px; letter-spacing: .08em; text-transform: uppercase; }
+  td { color: var(--muted); }
+  .senala, .ojo { border-left: 3px solid var(--ok); background: #101014; padding: 12px 14px; margin: 14px 0 18px; }
+  .ojo { border-left-color: #e0b15a; }
+  .senala p, .ojo p { margin: 0; color: var(--text); }
+  .kicker { color: var(--red); font-size: 12px; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; margin: 0 0 8px; }
+  section { padding-top: 8px; margin-top: 36px; border-top: 1px solid var(--line); }
+  section:first-of-type { border-top: 0; margin-top: 0; }
+  @media (max-width: 900px) {
+    .marco { grid-template-columns: 1fr; }
+    nav { position: relative; height: auto; border-right: 0; border-bottom: 1px solid var(--line); }
+    main { padding: 24px 16px 64px; }
+  }
+</style>
+</head>
+<body>
+<div class="marco">
+<nav>
+  <p class="marca">LUJO <span>LUJITOS</span></p>
+  <p class="aviso">Solo el código React de <code>src</code>. Se estudia con el archivo abierto al lado.</p>
+  <input id="buscar" type="search" placeholder="Buscar componente, hook, estado…" />
+  <div class="grupo">Común</div>
+  <a href="#leer">Qué código se explica</a>
+  <a href="#conceptos">Lo que React hace en esta app</a>
+  <a href="#arbol">El árbol de componentes</a>
+  <a href="#datos">Cómo viajan los datos</a>
+  <div class="grupo">Joaquin</div>
+  <a href="#joaquin">Sus archivos</a>
+  <a href="#main">main.jsx</a>
+  <a href="#app">App.jsx</a>
+  <a href="#hook">useLocalStorage.js</a>
+  <a href="#data">data.js</a>
+  <a href="#inicio">Inicio.jsx</a>
+  <a href="#hero">Hero.jsx</a>
+  <a href="#autos">Autos, Beneficios, Horarios, Pie</a>
+  <a href="#barra">Barra.jsx</a>
+  <a href="#login">Login.jsx</a>
+  <a href="#no">NoEncontrada.jsx</a>
+  <div class="grupo">Franco</div>
+  <a href="#franco">Sus archivos</a>
+  <a href="#galeria">Galeria.jsx</a>
+  <a href="#modelos">modelos.js</a>
+  <a href="#filtro">Filtro, Sección, Card, Volver</a>
+  <div class="grupo">Teo</div>
+  <a href="#teo">Sus archivos</a>
+  <a href="#turno">Turno.jsx</a>
+  <a href="#citas">citas.js</a>
+  <a href="#admin">Admin.jsx</a>
+  <div class="grupo">Cierre</div>
+  <a href="#preguntas">Preguntas sobre el código</a>
+  <a href="#practica">Practicar en la carpeta</a>
+</nav>
+<main>
+
+<p class="kicker">Guía de estudio · solo React</p>
+<h1>El código de <code>src</code></h1>
+<p>En la defensa se abre la carpeta <code>lujo-lujitos-react/src</code> y se explica ese JavaScript. Esta guía recorre cada <code>.jsx</code> y cada <code>.js</code> de ahí: qué exporta, qué estado tiene, qué props recibe y a qué otro archivo llama. Los estilos, las fotos y la configuración de Vite no son el código que hay que explicar.</p>
+
+<section id="leer">
+<h2>Qué código es de cada uno</h2>
+<p>Hay una sola app. <code>App.jsx</code> elige la página. Cada uno explica los archivos que escribió.</p>
+<table>
+  <tr><th>Quién</th><th>Archivos React</th></tr>
+  <tr><td>Joaquin</td><td><code>main.jsx</code>, <code>App.jsx</code>, <code>hooks/useLocalStorage.js</code>, <code>data.js</code>, <code>pages/Inicio.jsx</code>, <code>pages/NoEncontrada.jsx</code>, <code>components/Barra.jsx</code>, <code>Hero.jsx</code>, <code>Autos.jsx</code>, <code>Beneficios.jsx</code>, <code>Horarios.jsx</code>, <code>Login.jsx</code>, <code>Pie.jsx</code></td></tr>
+  <tr><td>Franco</td><td><code>pages/Galeria.jsx</code>, <code>data/modelos.js</code>, <code>components/FiltroMarcas.jsx</code>, <code>SeccionMarca.jsx</code>, <code>Card.jsx</code>, <code>BotonVolver.jsx</code></td></tr>
+  <tr><td>Teo</td><td><code>pages/Turno.jsx</code>, <code>pages/Admin.jsx</code>, <code>data/citas.js</code></td></tr>
+</table>
+<div class="ojo"><p>Dos nombres se repiten y no son el mismo código. <code>src/data.js</code> es la home. <code>src/data/modelos.js</code> es el catálogo. El <code>Card</code> que importa <code>Autos.jsx</code> viene de <code>@mui/material/Card</code>. El <code>Card</code> de <code>src/components/Card.jsx</code> es el de la galería.</p></div>
+</section>
+
+<section id="conceptos">
+<h2>Lo que React hace en esta app</h2>
+<p>Un componente es una función que devuelve JSX. JSX parece HTML y es JavaScript: <code>class</code> se escribe <code>className</code>, <code>for</code> se escribe <code>htmlFor</code>, y <code>{ }</code> mete una variable o una expresión. Varios hermanos se envuelven en <code>&lt;&gt;...&lt;/&gt;</code>. El comentario adentro del JSX es <code>{/* así */}</code>.</p>
+<p><strong>Props.</strong> Argumentos que el padre le pasa al hijo. <code>App</code> le pasa <code>sesion</code> a <code>Barra</code>. El hijo las lee y no las declara.</p>
+<p><strong>useState.</strong> <code>const [valor, setValor] = useState(inicial)</code>. Para cambiar la pantalla se llama al setter. Leer la variable no alcanza. Cuando el componente se desmonta, ese estado desaparece, salvo que se haya copiado a <code>localStorage</code>.</p>
+<p><strong>useEffect.</strong> Corre después de dibujar. <code>[]</code> significa una vez, al aparecer. Si el efecto devuelve una función, esa función es la limpieza. En el hero limpia el intervalo. En el turno limpia el listener de Escape.</p>
+<p><strong>Input controlado.</strong> <code>value={estado}</code> y <code>onChange</code> que actualiza ese estado. El login y el turno están escritos así. Si falta el <code>onChange</code>, la letra no queda.</p>
+<p><strong>map y key.</strong> <code>map</code> convierte un array en elementos. Cada uno lleva <code>key</code> con un id estable. <code>filter</code> se queda con una parte del array. La galería filtra marcas y después las mapea.</p>
+<p><strong>Export.</strong> <code>export default</code> se importa sin llaves. <code>export const marcas</code> se importa entre llaves: <code>import { marcas } from '../data/modelos'</code>.</p>
+<p><strong>Router.</strong> <code>BrowserRouter</code> en <code>main.jsx</code> escucha la URL. <code>Routes</code> y <code>Route</code> en <code>App.jsx</code> eligen un componente. <code>Link</code> cambia la URL sin pedir otro HTML. <code>useLocation()</code> lee el path actual.</p>
+</section>
+
+<section id="arbol">
+<h2>El árbol de componentes</h2>
+<p><code>main.jsx</code> monta este árbol dentro del <code>div#root</code>:</p>
+<pre><code>BrowserRouter
+  Raiz                         modo + ThemeProvider
+    App                        sesion, loginAbierto
+      ScrollArriba             no dibuja nada
+      Barra                    en todas las rutas
+      Routes
+        /          Inicio
+                     Hero, Autos, Beneficios, Horarios
+        /galeria   Galeria
+                     BotonVolver, FiltroMarcas, SeccionMarca, Card
+        /turno     Turno
+        /admin     Admin
+        *          NoEncontrada
+      Login                    cuadro, no es una ruta
+      Pie                      solo si pathname es /</code></pre>
+<p>Router desmonta la página anterior cuando cambia la URL. La barra y el login siguen montados. Por eso la sesión no se pierde al ir a la galería: vive en <code>App</code>, que no se desmonta.</p>
+</section>
+
+<section id="datos">
+<h2>Cómo viajan los datos</h2>
+<ol>
+  <li><strong>De padre a hijo, por props.</strong> <code>modo</code> nace en <code>Raiz</code> y baja a <code>App</code> y de ahí a <code>Barra</code>. <code>sesion</code> nace en <code>App</code> y baja a <code>Barra</code>, <code>Inicio</code>, <code>Hero</code> y <code>Login</code>.</li>
+  <li><strong>De hijo a padre, por una función.</strong> La barra no hace <code>setModo</code>. Llama a <code>cambiarModo</code>, que <code>Raiz</code> le pasó. El login no guarda la sesión él mismo: llama a <code>setSesion</code>, que es el setter de <code>App</code>.</li>
+  <li><strong>Entre archivos, por import.</strong> <code>citas.js</code> importa <code>marcas</code> de <code>modelos.js</code> y arma la lista del select. No pasa por props.</li>
+  <li><strong>Entre recargas, por localStorage.</strong> Tres claves: <code>modo</code>, <code>sesion</code> y <code>turnos</code>. El filtro de la galería y el texto a medio escribir no se guardan.</li>
+</ol>
+<table>
+  <tr><th>Clave</th><th>Quién la escribe en código</th><th>Valor</th></tr>
+  <tr><td><code>modo</code></td><td><code>useLocalStorage</code> desde <code>main.jsx</code></td><td><code>"dark"</code> o <code>"light"</code></td></tr>
+  <tr><td><code>sesion</code></td><td><code>useLocalStorage</code> desde <code>App.jsx</code>, cuando <code>Login</code> llama a <code>setSesion</code></td><td><code>{ email }</code>, o la clave se borra si el valor es <code>null</code></td></tr>
+  <tr><td><code>turnos</code></td><td><code>guardarCita</code> y <code>borrarCita</code> en <code>citas.js</code></td><td>Array de citas. Cada una tiene <code>id</code>, <code>nombre</code>, <code>telefono</code>, <code>modelo</code>, <code>fecha</code>, <code>fechaFormateada</code>, <code>creadoEn</code></td></tr>
+</table>
+<p>La contraseña no entra en ningún objeto. <code>Login</code> la tiene en un <code>useState</code> local y la limpia al cerrar el cuadro.</p>
+</section>
+
+<section id="joaquin">
+<h2>Joaquin</h2>
+<p>Su React es el arranque, el tema, la sesión, la barra y la home. <code>App.jsx</code> también declara las rutas <code>/galeria</code>, <code>/turno</code> y <code>/admin</code>: eso es el enchufe. El código de adentro de esas páginas es de Franco y de Teo.</p>
+</section>
+
+<section id="main">
+<h2>src/main.jsx</h2>
+<p>Primer archivo de React. No dibuja la home. Crea la raíz, el router y el tema, y renderiza <code>App</code>.</p>
+<pre><code>const [modo, setModo] = useLocalStorage('modo', 'dark');
+
+const tema = useMemo(
+  () =&gt; createTheme({
+    palette: {
+      mode: modo,
+      primary: { main: '#ff1f3d', contrastText: '#0a0a0c' },
+      ...(modo === 'dark' &amp;&amp; {
+        background: { default: '#0a0a0c', paper: '#131316' },
+        text: { primary: '#f5f5f0', secondary: '#a3a3ab' },
+      }),
+    },
+    typography: { fontFamily: texto, h1: { fontFamily: display }, ... },
+  }),
+  [modo]
+);</code></pre>
+<ul>
+  <li><code>useLocalStorage('modo', 'dark')</code> devuelve el mismo par que <code>useState</code>. El segundo argumento es el valor si todavía no hay nada guardado.</li>
+  <li><code>useMemo(..., [modo])</code> arma el objeto del tema solo cuando cambia el modo. <code>createTheme</code> no corre en cada render.</li>
+  <li><code>palette.mode</code> es lo que Material UI usa para fondo y texto. El color primario de los botones es <code>#ff1f3d</code>.</li>
+  <li><code>CssBaseline</code> aplica el color de fondo del tema al body.</li>
+  <li><code>cambiarModo</code> se define acá, al lado del estado: <code>() =&gt; setModo(modo === 'dark' ? 'light' : 'dark')</code>. Baja como prop hasta <code>Barra</code>.</li>
+</ul>
+<pre><code>createRoot(document.getElementById('root')).render(
+  &lt;StrictMode&gt;
+    &lt;BrowserRouter&gt;
+      &lt;Raiz /&gt;
+    &lt;/BrowserRouter&gt;
+  &lt;/StrictMode&gt;
+);</code></pre>
+<p><code>createRoot</code> agarra el div vacío y a partir de ahí pinta React. <code>BrowserRouter</code> envuelve todo porque <code>Link</code>, <code>Routes</code> y <code>useLocation</code> tienen que estar adentro. <code>StrictMode</code> en desarrollo ejecuta algunos efectos dos veces para detectar limpiezas que faltan. En la pantalla no se ve.</p>
+<div class="senala"><p>Si piden «dónde está el color de la app», es este <code>createTheme</code>. Si piden «quién envuelve las rutas», es este <code>BrowserRouter</code>.</p></div>
+</section>
+
+<section id="app">
+<h2>src/App.jsx</h2>
+<p>Recibe <code>modo</code> y <code>cambiarModo</code>. Dueño de la sesión y de si el login está abierto.</p>
+<pre><code>const [sesion, setSesion] = useLocalStorage('sesion', null);
+const [loginAbierto, setLoginAbierto] = useState(false);
+const { pathname } = useLocation();
+const abrirLogin = () =&gt; setLoginAbierto(true);</code></pre>
+<p><code>sesion</code> sobrevive al F5 porque pasa por el hook. <code>loginAbierto</code> es un <code>useState</code> común: al recargar el cuadro empieza cerrado, aunque la persona siga logueada.</p>
+<p><code>ScrollArriba</code> está en el mismo archivo. Hace <code>return null</code>. Su efecto depende de <code>pathname</code> y llama a <code>window.scrollTo(0, 0)</code>. Sirve para que al cambiar de ruta la ventana vuelva arriba. No genera etiquetas.</p>
+<p>Lo que renderiza <code>App</code>, en este orden:</p>
+<ol>
+  <li><code>Barra</code> con <code>modo</code>, <code>cambiarModo</code>, <code>sesion</code> y <code>abrirLogin</code>.</li>
+  <li>Cinco rutas. <code>Inicio</code> recibe <code>sesion</code> y <code>abrirLogin</code>. <code>Galeria</code>, <code>Turno</code> y <code>Admin</code> no reciben props. <code>path="*"</code> es cualquier otra URL y renderiza <code>NoEncontrada</code>.</li>
+  <li><code>Login</code> siempre está montado. Se ve cuando <code>abierto={loginAbierto}</code> es true. Recibe <code>cerrar</code>, <code>sesion</code> y <code>setSesion</code>.</li>
+  <li><code>{pathname === '/' &amp;&amp; &lt;Pie /&gt;}</code>. En las otras rutas esa expresión es false y React no dibuja el pie.</li>
+</ol>
+</section>
+
+<section id="hook">
+<h2>src/hooks/useLocalStorage.js</h2>
+<p>Función que usa hooks. La usan <code>main.jsx</code> (clave <code>modo</code>) y <code>App.jsx</code> (clave <code>sesion</code>). Las citas no la usan.</p>
+<pre><code>export default function useLocalStorage(clave, valorInicial) {
+  const [valor, setValor] = useState(() =&gt; {
+    try {
+      const texto = localStorage.getItem(clave);
+      return texto ? JSON.parse(texto) : valorInicial;
+    } catch {
+      return valorInicial;
+    }
+  });
+
+  useEffect(() =&gt; {
+    if (valor === null) localStorage.removeItem(clave);
+    else localStorage.setItem(clave, JSON.stringify(valor));
+  }, [clave, valor]);
+
+  return [valor, setValor];
+}</code></pre>
+<ul>
+  <li>La función que se le pasa a <code>useState</code> corre una sola vez. Ahí se lee el navegador. <code>JSON.parse</code> convierte el texto en un valor de JavaScript.</li>
+  <li>Si el texto guardado está roto, el <code>catch</code> usa el valor inicial y la app no se cae.</li>
+  <li>El efecto corre después del primer render y cada vez que cambian <code>clave</code> o <code>valor</code>. <code>null</code> borra la clave. Cualquier otro valor se guarda con <code>JSON.stringify</code>.</li>
+  <li>Devuelve el mismo par que <code>useState</code>, así el componente que lo llama escribe <code>const [sesion, setSesion] = useLocalStorage(...)</code>.</li>
+</ul>
+<p>Cerrar sesión es <code>setSesion(null)</code>. El efecto ve el null y hace <code>removeItem('sesion')</code>.</p>
+</section>
+
+<section id="data">
+<h2>src/data.js</h2>
+<p>No es un componente. No tiene JSX. Exporta tres constantes que los componentes de la home importan.</p>
+<ul>
+  <li><code>horarios</code>. De lunes a sábado. <code>dia</code> usa el número de <code>Date.getDay()</code>: 1 es lunes, 6 es sábado. No hay objeto para el domingo (0), así que ese día el chip queda cerrado. <code>desde</code> y <code>hasta</code> son horas enteras. Lunes a viernes 9–19. Sábado 10–14. <code>diaTexto</code> y <code>atencion</code> son lo que muestra la tabla.</li>
+  <li><code>autos</code>. Tres objetos: Porsche 911, Mercedes-AMG GT 63 S, Ferrari 296 GTB. Cada uno tiene <code>id</code>, <code>marca</code>, <code>modelo</code>, <code>imagen</code>, <code>specs</code> y <code>precio</code>. <code>specs</code> es un array de pares <code>[etiqueta, valor]</code>. El precio ya es un string, por ejemplo <code>'$130,000'</code>.</li>
+  <li><code>beneficios</code>. Tres objetos con <code>id</code>, <code>titulo</code>, <code>imagen</code> y <code>texto</code>.</li>
+</ul>
+<p>Este array de tres autos no alimenta el select del turno. El turno importa <code>marcas</code> desde <code>modelos.js</code>.</p>
+</section>
+
+<section id="inicio">
+<h2>src/pages/Inicio.jsx</h2>
+<p>No tiene estado. Recibe <code>sesion</code> y <code>abrirLogin</code> y se los pasa solo al hero. Los otros tres no los necesitan.</p>
+<pre><code>function Inicio({ sesion, abrirLogin }) {
+  return (
+    &lt;&gt;
+      &lt;Hero sesion={sesion} abrirLogin={abrirLogin} /&gt;
+      &lt;Autos /&gt;
+      &lt;Beneficios /&gt;
+      &lt;Horarios /&gt;
+    &lt;/&gt;
+  );
+}</code></pre>
+<p>El fragmento <code>&lt;&gt;</code> existe porque un return de JSX pide un solo padre, y acá hay cuatro hermanos.</p>
+</section>
+
+<section id="hero">
+<h2>src/components/Hero.jsx</h2>
+<p>Props: <code>sesion</code>, <code>abrirLogin</code>. Estado: <code>abierto</code>, boolean, empieza en <code>false</code>.</p>
+<pre><code>useEffect(() =&gt; {
+  function revisarHorario() {
+    const ahora = new Date();
+    const dia = ahora.getDay();
+    const hora = ahora.getHours();
+    setAbierto(horarios.some((h) =&gt; h.dia === dia &amp;&amp; hora &gt;= h.desde &amp;&amp; hora &lt; h.hasta));
+  }
+  revisarHorario();
+  const intervalo = setInterval(revisarHorario, 60000);
+  return () =&gt; clearInterval(intervalo);
+}, []);</code></pre>
+<p><code>some</code> devuelve true si algún horario cumple las tres condiciones. La hora <code>hasta</code> no entra: a las 19 el chip ya dice CERRADO. El efecto corre al montar, repite cada 60 segundos y la función devuelta corta el intervalo cuando el hero se va. Importa <code>horarios</code> de <code>../data</code>.</p>
+<p>El chip usa el estado: <code>label={abierto ? 'ABIERTO' : 'CERRADO'}</code>. «Explorar Modelos» y «Tour Virtual» son <code>Button component={Link} to="/galeria"</code>. El botón de sesión no navega: <code>onClick={abrirLogin}</code>, y el texto es <code>sesion ? 'Mi cuenta' : 'Iniciar Sesión'</code>. El correo no se muestra acá. Se muestra en <code>Barra</code>.</p>
+</section>
+
+<section id="autos">
+<h2>Autos, Beneficios, Horarios y Pie</h2>
+
+<h3>src/components/Autos.jsx</h3>
+<p>Sin estado. Importa <code>autos</code> de <code>../data</code> y el <code>Card</code> de Material UI, no el de <code>components/Card.jsx</code>. <code>autos.map((auto) =&gt; ...)</code> con <code>key={auto.id}</code>. Adentro, <code>auto.specs.map(([etiqueta, valor]) =&gt; ...)</code> con <code>key={etiqueta}</code>. El botón Consultar es <code>component={Link} to="/turno"</code>. La grilla está en la prop <code>sx</code>: una columna, y tres desde el breakpoint <code>md</code>.</p>
+
+<h3>src/components/Beneficios.jsx</h3>
+<p>Sin estado. <code>beneficios.map</code> con <code>key={b.id}</code>. Cada item pinta un <code>Avatar</code> con <code>src={b.imagen}</code>, el título y el texto.</p>
+
+<h3>src/components/Horarios.jsx</h3>
+<p>Sin estado. Tabla de Material UI. <code>horarios.map</code> con <code>key={h.id}</code>. Cada fila muestra <code>h.diaTexto</code>, <code>{h.desde}:00 a {h.hasta}:00</code> y <code>h.atencion</code>. El hero usa <code>dia</code>, <code>desde</code> y <code>hasta</code> para calcular. Esta tabla usa los textos. Los dos leen el mismo array.</p>
+
+<h3>src/components/Pie.jsx</h3>
+<p>Sin estado. El array <code>redes</code> está declarado en este archivo, no en <code>data.js</code>. <code>redes.map</code> con <code>key={r.id}</code> arma tres <code>Link</code> de MUI. <code>App</code> lo monta solo cuando <code>pathname === '/'</code>.</p>
+</section>
+
+<section id="barra">
+<h2>src/components/Barra.jsx</h2>
+<p>Sin estado propio. Todo le llega por props: <code>modo</code>, <code>cambiarModo</code>, <code>sesion</code>, <code>abrirLogin</code>.</p>
+<table>
+  <tr><th>Elemento</th><th>Código</th></tr>
+  <tr><td>LUJO LUJITOS</td><td><code>Typography component={Link} to="/"</code></td></tr>
+  <tr><td>Modelos</td><td><code>Button component={Link} to="/galeria"</code></td></tr>
+  <tr><td>Contacto y Reservar Cita</td><td><code>to="/turno"</code></td></tr>
+  <tr><td>Agenda</td><td><code>to="/admin"</code></td></tr>
+  <tr><td>Botón de la derecha</td><td><code>onClick={abrirLogin}</code>. El hijo es <code>{sesion ? sesion.email : 'Ingresar'}</code>. <code>textTransform: 'none'</code> para que MUI no pase el correo a mayúsculas.</td></tr>
+  <tr><td>Sol o luna</td><td><code>onClick={cambiarModo}</code>. El carácter es <code>modo === 'dark' ? '☀' : '☾'</code>.</td></tr>
+</table>
+<p><code>component={Link}</code> hace que el botón de MUI sea un link del router. La URL cambia y <code>App</code> sigue montado, así que <code>sesion</code> y <code>modo</code> siguen en memoria.</p>
+</section>
+
+<section id="login">
+<h2>src/components/Login.jsx</h2>
+<p>Props: <code>abierto</code>, <code>cerrar</code>, <code>sesion</code>, <code>setSesion</code>. Estado local: <code>email</code>, <code>password</code>, <code>acepto</code>, <code>error</code>. Los cuatro empiezan vacíos o en false y se pierden al recargar. La sesión que queda es la de <code>App</code>.</p>
+<p>Si <code>sesion</code> tiene valor, el diálogo muestra «Tu cuenta», el email y un botón que llama a <code>cerrarSesion</code>. Esa función es <code>setSesion(null)</code>.</p>
+<p>Si no hay sesión, hay un form controlado. Cada <code>TextField</code> tiene <code>value</code> y <code>onChange</code> que hace <code>setEmail</code> o <code>setPassword</code>. El checkbox hace <code>setAcepto(e.target.checked)</code>.</p>
+<pre><code>function manejarEnvio(e) {
+  e.preventDefault();
+  if (!acepto) {
+    setError('Tenés que aceptar los términos para ingresar.');
+    return;
+  }
+  setSesion({ email: email.trim() });
+  setEmail('');
+  setPassword('');
+  setAcepto(false);
+  setError('');
+  cerrar();
+}</code></pre>
+<ul>
+  <li><code>preventDefault</code> frena el envío nativo del form, que recargaría la página.</li>
+  <li>Sin el checkbox, hay error y un <code>return</code>. No se llama a <code>setSesion</code>.</li>
+  <li>El objeto guardado tiene una sola propiedad, <code>email</code>, ya sin espacios. <code>password</code> se limpia y no se copia.</li>
+  <li><code>cerrar</code> es la prop de <code>App</code>: pone <code>loginAbierto</code> en false.</li>
+</ul>
+<p>Los campos tienen <code>required</code> y el correo tiene <code>type="email"</code>. Esa validación la hace el navegador antes de disparar <code>onSubmit</code>: no deja mandar el form vacío. El código de React no compara la contraseña contra una lista. Cualquier contraseña no vacía, con los términos aceptados, entra.</p>
+<p>El recorrido completo: click en la barra → <code>abrirLogin</code> → <code>loginAbierto</code> true → el <code>Dialog</code> se abre → submit → <code>setSesion</code> → el hook escribe <code>sesion</code> → la barra se redibuja con <code>sesion.email</code>.</p>
+</section>
+
+<section id="no">
+<h2>src/pages/NoEncontrada.jsx</h2>
+<p>Sin estado y sin props. La ruta <code>*</code> de <code>App</code> lo monta cuando la URL no coincide con las otras. Muestra un título y un <code>Button component={Link} to="/"</code>.</p>
+</section>
+
+<section id="franco">
+<h2>Franco</h2>
+<p>Su React es la página <code>/galeria</code> y los datos del catálogo. <code>Galeria</code> tiene el único estado de esta parte: qué marca está elegida. El resto son componentes que reciben props y dibujan.</p>
+</section>
+
+<section id="galeria">
+<h2>src/pages/Galeria.jsx</h2>
+<pre><code>const [marcaSeleccionada, setMarcaSeleccionada] = useState('todas');
+
+const marcasVisibles =
+  marcaSeleccionada === 'todas'
+    ? marcas
+    : marcas.filter((marca) =&gt; marca.id === marcaSeleccionada);</code></pre>
+<p><code>marcas</code> se importa de <code>../data/modelos</code>. <code>marcasVisibles</code> no es estado. Se calcula en cada render a partir del estado. Cuando el filtro cambia, React vuelve a ejecutar la función y el <code>map</code> de abajo recibe otro array.</p>
+<pre><code>&lt;FiltroMarcas
+  marcas={marcas}
+  seleccionada={marcaSeleccionada}
+  onSeleccionar={setMarcaSeleccionada}
+/&gt;
+
+{marcasVisibles.map((marca) =&gt; (
+  &lt;SeccionMarca key={marca.id} marca={marca} /&gt;
+))}</code></pre>
+<p><code>onSeleccionar={setMarcaSeleccionada}</code> le pasa el setter al hijo. El hijo no sabe cómo se llama el estado. Solo llama a la función con un id. <code>BotonVolver</code> va arriba, sin props. No hay <code>useEffect</code> en este archivo.</p>
+</section>
+
+<section id="modelos">
+<h2>src/data/modelos.js</h2>
+<p>No es un componente. Arriba importa cada foto y la guarda en una variable. Esa variable termina en la propiedad <code>imagen</code> del objeto. <code>Card</code> la usa como <code>src</code>.</p>
+<p>Exporta <code>marcas</code>: un array de marcas. Cada marca tiene <code>id</code>, <code>nombre</code>, <code>color</code> y <code>modelos</code>. Cada modelo tiene <code>id</code>, <code>nombre</code>, <code>imagen</code>, <code>motor</code>, <code>potencia</code>, <code>aceleracion</code>, <code>traccion</code> y <code>precio</code>. Potencia, aceleración y precio son números. <code>220_000</code> es el número 220000: el guion bajo solo separa para leerlo.</p>
+<p>Las marcas del array son Ferrari, Lamborghini, Koenigsegg, Porsche y Mercedes-AMG. Ferrari tiene cuatro modelos. Lamborghini y Koenigsegg tienen tres. Porsche y Mercedes-AMG tienen uno.</p>
+<pre><code>export const formatearPrecio = (precio) =&gt; `$${precio.toLocaleString('en-US')}`</code></pre>
+<p>La llama <code>SeccionMarca</code>. <code>220000</code> se ve como <code>$220,000</code>. En la home de Joaquin el precio ya viene como string dentro de <code>data.js</code>. Acá el número se formatea al dibujar.</p>
+<p><code>citas.js</code> también importa <code>marcas</code>. Un objeto nuevo en este array aparece en la galería y en el select del turno, sin tocar <code>Galeria.jsx</code> ni <code>Turno.jsx</code>.</p>
+</section>
+
+<section id="filtro">
+<h2>FiltroMarcas, SeccionMarca, Card y BotonVolver</h2>
+
+<h3>src/components/FiltroMarcas.jsx</h3>
+<p>Sin estado. Props: <code>marcas</code>, <code>seleccionada</code>, <code>onSeleccionar</code>.</p>
+<pre><code>const opciones = [{ id: 'todas', nombre: 'Todas', color: '#444444' }, ...marcas];
+
+opciones.map((opcion) =&gt; (
+  &lt;button
+    key={opcion.id}
+    className={opcion.id === seleccionada ? 'activo' : ''}
+    aria-pressed={opcion.id === seleccionada}
+    onClick={() =&gt; onSeleccionar(opcion.id)}
+  &gt;
+    {opcion.nombre}
+  &lt;/button&gt;
+))</code></pre>
+<p>El spread <code>...marcas</code> copia las marcas después del botón Todas. El click no filtra acá. Le avisa al padre el id, y el padre cambia <code>marcaSeleccionada</code>. La clase <code>activo</code> sale de comparar el id con la prop <code>seleccionada</code>.</p>
+
+<h3>src/components/SeccionMarca.jsx</h3>
+<p>Sin estado. Prop: <code>marca</code>. Importa <code>formatearPrecio</code>. Hace <code>marca.modelos.map</code> con <code>key={modelo.id}</code>. Cada vuelta renderiza un <code>Card</code> con <code>imagen</code> y <code>titulo</code>, y entre las etiquetas pone los párrafos de motor, potencia, aceleración, tracción y precio. Eso que va entre las etiquetas llega al hijo como <code>children</code>.</p>
+<p><code>modelo.aceleracion.toFixed(1)</code> deja un decimal. El precio pasa por <code>formatearPrecio(modelo.precio)</code> antes de mostrarse.</p>
+
+<h3>src/components/Card.jsx</h3>
+<pre><code>function Card({ imagen, titulo, children }) {
+  return (
+    &lt;article className="auto"&gt;
+      &lt;img src={imagen} alt={titulo} /&gt;
+      &lt;h3&gt;{titulo}&lt;/h3&gt;
+      &lt;div className="auto-datos"&gt;{children}&lt;/div&gt;
+    &lt;/article&gt;
+  );
+}</code></pre>
+<p>No sabe si el hijo es un motor o un precio. Por eso el mismo componente sirve para todos los autos. <code>children</code> es la prop que React arma con el JSX interno.</p>
+
+<h3>src/components/BotonVolver.jsx</h3>
+<pre><code>function BotonVolver({ to = '/' }) {
+  return &lt;Link to={to} className="btn-volver"&gt;← Volver al inicio&lt;/Link&gt;;
+}</code></pre>
+<p><code>to = '/'</code> es el valor si el padre no pasa la prop. En <code>Galeria</code> se usa así, <code>&lt;BotonVolver /&gt;</code>, y el link vuelve a la home. <code>Link</code> es de React Router.</p>
+</section>
+
+<section id="teo">
+<h2>Teo</h2>
+<p>Su React es el formulario de <code>/turno</code>, la tabla de <code>/admin</code> y las tres funciones que leen y escriben las citas. El formulario es controlado. La lista de modelos no está escrita en <code>Turno.jsx</code>: sale de <code>modelosDisponibles</code>, que aplana el array de Franco.</p>
+</section>
+
+<section id="turno">
+<h2>src/pages/Turno.jsx</h2>
+<p>Importa <code>guardarCita</code> y <code>modelosDisponibles</code> desde <code>../data/citas</code>.</p>
+<pre><code>const [formData, setFormData] = useState({
+  nombre: '',
+  telefono: '',
+  modelo: modelosDisponibles[0]?.nombre ?? '',
+  fecha: ''
+});</code></pre>
+<p><code>modelo</code> arranca con el nombre del primer auto. <code>?. </code> corta si la lista viniera vacía, y <code>?? ''</code> deja string vacío en ese caso. El resto del estado es <code>minDate</code>, <code>isSubmitting</code>, <code>btnText</code>, <code>showModal</code> y <code>modalData</code>.</p>
+
+<h3>Fecha mínima</h3>
+<pre><code>useEffect(() =&gt; {
+  const now = new Date();
+  const month = String(now.getMonth() + 1).padStart(2, '0');
+  const day = String(now.getDate()).padStart(2, '0');
+  setMinDate(`${year}-${month}-${day}T${hours}:${minutes}`);
+}, []);</code></pre>
+<p>Los meses de <code>getMonth</code> van de 0 a 11, por eso el <code>+ 1</code>. <code>padStart</code> agrega el cero. El input <code>datetime-local</code> recibe ese string en <code>min={minDate}</code>. El efecto tiene <code>[]</code>: calcula «ahora» una vez, al entrar.</p>
+
+<h3>Cambios del formulario</h3>
+<pre><code>const handleChange = (e) =&gt; {
+  const { id, value } = e.target;
+  setFormData((prev) =&gt; ({ ...prev, [id]: value }));
+};</code></pre>
+<p>Nombre, modelo y fecha usan este handler. El <code>id</code> del input coincide con la clave del objeto (<code>nombre</code>, <code>modelo</code>, <code>fecha</code>). <code>...prev</code> copia los otros campos. <code>[id]</code> escribe solo el que cambió. Sin el spread, el estado se quedaría con un único campo.</p>
+<p>El teléfono tiene su propio handler:</p>
+<pre><code>const limpio = e.target.value.replace(/[^\d+\s()-]/g, '').slice(0, 20);
+setFormData((prev) =&gt; ({ ...prev, telefono: limpio }));</code></pre>
+<p>La expresión regular se queda con dígitos, <code>+</code>, espacios, paréntesis y guiones. <code>slice(0, 20)</code> corta en 20 caracteres. El resultado vuelve a <code>formData.telefono</code>, y el input lo muestra porque es controlado: <code>value={formData.telefono}</code>.</p>
+
+<h3>Submit</h3>
+<pre><code>const handleSubmit = async (e) =&gt; {
+  e.preventDefault();
+  const fechaFormat = new Date(formData.fecha).toLocaleDateString('es-ES', { ... });
+  setIsSubmitting(true);
+  guardarCita({
+    nombre: formData.nombre.trim(),
+    telefono: formData.telefono,
+    modelo: formData.modelo,
+    fecha: formData.fecha,
+    fechaFormateada: fechaFormat,
+    creadoEn: new Date().toISOString()
+  });
+  setTimeout(() =&gt; { /* cambia el texto del botón y, un segundo después, abre el cartel */ }, 800);
+};</code></pre>
+<ul>
+  <li><code>preventDefault</code> evita que el form navegue.</li>
+  <li><code>guardarCita</code> corre en el momento. El cartel espera los dos <code>setTimeout</code> (800 ms y después 1000 ms). Esos timeouts cambian <code>btnText</code> y después ponen <code>showModal</code> en true. No consultan un servidor.</li>
+  <li><code>modalData</code> guarda nombre, modelo y la fecha ya formateada. El cartel lee <code>modalData</code>, no <code>formData</code>.</li>
+  <li><code>isSubmitting</code> deshabilita el botón con <code>disabled={isSubmitting}</code> mientras tanto.</li>
+</ul>
+<p>En el JSX cada campo tiene <code>value={formData....}</code>. Nombre, teléfono, modelo y fecha son <code>required</code>. Nombre además tiene <code>minLength={3}</code>. El select es:</p>
+<pre><code>{modelosDisponibles.map((item) =&gt; (
+  &lt;option key={item.id} value={item.nombre}&gt;{item.nombre}&lt;/option&gt;
+))}</code></pre>
+<p>El <code>value</code> del option es el nombre. Eso es lo que queda en <code>formData.modelo</code> y después en la cita.</p>
+<p><code>closeModal</code> reinicia <code>formData</code> con el primer modelo otra vez y pone <code>showModal</code> en false. El link «Ver en la agenda» es <code>&lt;Link to="/admin"&gt;</code>.</p>
+<p>El segundo efecto depende de <code>[showModal]</code>. Si el cartel está abierto y la tecla es Escape, llama a <code>closeModal</code>. Devuelve una función que hace <code>removeEventListener</code>. Sin esa limpieza, cada vez que se abre el cartel se sumaría otro listener.</p>
+</section>
+
+<section id="citas">
+<h2>src/data/citas.js</h2>
+<p>No dibuja. Es el único archivo que toca la clave <code>turnos</code>.</p>
+<pre><code>import { marcas } from './modelos'
+const CLAVE = 'turnos'
+
+export const modelosDisponibles = marcas.flatMap((marca) =&gt;
+  marca.modelos.map((modelo) =&gt; ({ id: modelo.id, nombre: modelo.nombre }))
+)</code></pre>
+<p><code>map</code> solo dejaría un array por marca. <code>flatMap</code> los junta en una sola lista de <code>{ id, nombre }</code>. El turno la recorre para los <code>option</code>. No copia motor ni precio.</p>
+<p>Si no hay nada guardado, o si lo guardado no es un array, <code>leerCitas</code> devuelve <code>[]</code>. El <code>catch</code> cubre un JSON roto. <code>Admin</code> puede hacer <code>.map</code> y <code>.length</code> sin preguntar si vino null.</p>
+<pre><code>export function leerCitas() {
+  try {
+    const texto = localStorage.getItem(CLAVE);
+    const datos = texto ? JSON.parse(texto) : [];
+    return Array.isArray(datos) ? datos : [];
+  } catch {
+    return [];
+  }
+}
+
+export function guardarCita(cita) {
+  const citas = leerCitas();
+  const nueva = { id: crypto.randomUUID(), ...cita };
+  localStorage.setItem(CLAVE, JSON.stringify([...citas, nueva]));
+  return nueva;
+}
+
+export function borrarCita(id) {
+  const citas = leerCitas().filter((cita) =&gt; String(cita.id) !== String(id));
+  localStorage.setItem(CLAVE, JSON.stringify(citas));
+  return citas;
+}</code></pre>
+<ul>
+  <li><code>guardarCita</code> lee, agrega y escribe el array entero. <code>crypto.randomUUID()</code> genera el <code>id</code>. El spread <code>...cita</code> copia nombre, teléfono, modelo y fechas.</li>
+  <li><code>[...citas, nueva]</code> es un array nuevo. No se hace <code>push</code> sobre el anterior.</li>
+  <li><code>borrarCita</code> se queda con las citas cuyo id es distinto. Compara como string. Devuelve la lista nueva para que <code>Admin</code> haga <code>setTurnos</code> con ella.</li>
+</ul>
+<p>Este import de <code>marcas</code> es el cruce con el código de Franco. El select de Teo muestra los mismos autos que la galería porque los dos leen <code>modelos.js</code>.</p>
+</section>
+
+<section id="admin">
+<h2>src/pages/Admin.jsx</h2>
+<pre><code>const [turnos, setTurnos] = useState([]);
+
+useEffect(() =&gt; {
+  setTurnos(leerCitas());
+}, []);
+
+const handleEliminar = (id) =&gt; {
+  if (!window.confirm('¿Desea cancelar esta cita de consulta?')) return;
+  setTurnos(borrarCita(id));
+};</code></pre>
+<p>Al montar, el efecto lee <code>localStorage</code> una vez y copia el array al estado. La tabla se dibuja desde <code>turnos</code>, no leyendo el storage en el render.</p>
+<p><code>window.confirm</code> es del navegador. Si la persona elige cancelar, devuelve false y el <code>return</code> corta: no se llama a <code>borrarCita</code>. Si acepta, <code>borrarCita</code> escribe el storage y devuelve el array que queda. <code>setTurnos</code> con ese array vuelve a dibujar la tabla.</p>
+<p>Si <code>turnos.length === 0</code>, se renderiza el párrafo «No hay turnos registrados en este momento.». Si hay elementos, <code>turnos.map</code> con <code>key={item.id}</code> arma las filas: <code>item.nombre</code>, <code>item.telefono</code>, <code>item.modelo</code>, <code>item.fechaFormateada || item.fecha</code>, y un botón cuyo <code>onClick</code> es <code>() =&gt; handleEliminar(item.id)</code>.</p>
+<p><code>Admin</code> no recibe <code>sesion</code>. No filtra citas por persona. Muestra todo lo que hay en la clave <code>turnos</code> de este navegador.</p>
+</section>
+
+<section id="preguntas">
+<h2>Preguntas sobre este código</h2>
+<ul>
+  <li><strong>¿Dónde se monta React?</strong> En <code>main.jsx</code>, <code>createRoot(...).render(...)</code>.</li>
+  <li><strong>¿Quién elige la página?</strong> <code>&lt;Routes&gt;</code> en <code>App.jsx</code>. El que escucha la URL es <code>BrowserRouter</code>, en <code>main.jsx</code>.</li>
+  <li><strong>¿Por qué la sesión sigue al ir a la galería?</strong> Porque vive en <code>App</code>, y <code>App</code> no se desmonta. Lo que se desmonta es el componente de la ruta.</li>
+  <li><strong>¿Qué es una prop en este proyecto?</strong> Por ejemplo <code>sesion</code>, que <code>App</code> le pasa a <code>Barra</code>, y <code>marca</code>, que <code>Galeria</code> le pasa a <code>SeccionMarca</code>.</li>
+  <li><strong>¿Dónde hay un input controlado?</strong> En <code>Login.jsx</code> (<code>value={email}</code>) y en <code>Turno.jsx</code> (<code>value={formData.nombre}</code> y el resto de <code>formData</code>).</li>
+  <li><strong>¿Dónde hay un useEffect con limpieza?</strong> En <code>Hero.jsx</code> (<code>clearInterval</code>) y en <code>Turno.jsx</code> (<code>removeEventListener</code>).</li>
+  <li><strong>¿Por qué la key es el id?</strong> Porque el id no cambia cuando la lista se filtra o se achica. El índice del array sí cambia.</li>
+  <li><strong>¿Dónde se escribe la cita?</strong> <code>guardarCita</code> en <code>citas.js</code>, llamada desde <code>handleSubmit</code> de <code>Turno.jsx</code>. La lee <code>leerCitas</code>, llamada en el efecto de <code>Admin.jsx</code>.</li>
+  <li><strong>¿Por qué el select muestra un auto de la galería?</strong> Porque <code>modelosDisponibles</code> hace <code>flatMap</code> de <code>marcas</code>, y <code>marcas</code> está exportado por <code>modelos.js</code>.</li>
+  <li><strong>¿La contraseña queda guardada?</strong> No. <code>setSesion</code> recibe solo <code>{ email }</code>.</li>
+  <li><strong>¿Qué estado se pierde al recargar?</strong> <code>loginAbierto</code>, <code>marcaSeleccionada</code>, <code>formData</code> y <code>showModal</code>. Siguen <code>modo</code>, <code>sesion</code> y <code>turnos</code>.</li>
+</ul>
+</section>
+
+<section id="practica">
+<h2>Practicar con la carpeta abierta</h2>
+<ol>
+  <li>Abrir <code>src/main.jsx</code> y seguir el <code>render</code> hasta <code>App</code>.</li>
+  <li>En <code>App.jsx</code>, señalar <code>useLocalStorage('sesion')</code> y las cinco <code>Route</code>.</li>
+  <li>Joaquin: de <code>Login.jsx</code>, <code>manejarEnvio</code>, saltar al setter que vive en <code>App.jsx</code> y después a la línea de <code>Barra.jsx</code> que imprime <code>sesion.email</code>.</li>
+  <li>Franco: en <code>Galeria.jsx</code>, el <code>useState('todas')</code> y el <code>filter</code>. Después un objeto de <code>modelos.js</code> y el <code>map</code> de <code>SeccionMarca.jsx</code>.</li>
+  <li>Teo: <code>handleSubmit</code> en <code>Turno.jsx</code>, la llamada a <code>guardarCita</code>, y en <code>Admin.jsx</code> el efecto que hace <code>leerCitas()</code>.</li>
+</ol>
+</section>
+
+</main>
+</div>
+<script>
+  const q = document.getElementById('buscar');
+  q.addEventListener('input', () => {
+    const texto = q.value.trim().toLowerCase();
+    document.querySelectorAll('main section').forEach((seccion) => {
+      const coincide = !texto || seccion.textContent.toLowerCase().includes(texto);
+      seccion.style.display = coincide ? '' : 'none';
+    });
+  });
+</script>
+</body>
+</html>

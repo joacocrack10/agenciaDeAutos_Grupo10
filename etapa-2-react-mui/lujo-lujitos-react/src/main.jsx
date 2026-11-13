@@ -1,5 +1,6 @@
 import { StrictMode, useMemo } from 'react';
 import { createRoot } from 'react-dom/client';
+import { BrowserRouter } from 'react-router-dom';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
 import App from './App.jsx';
@@ -47,6 +48,8 @@ function Raiz() {
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <Raiz />
+    <BrowserRouter>
+      <Raiz />
+    </BrowserRouter>
   </StrictMode>
 );

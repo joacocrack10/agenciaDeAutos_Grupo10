@@ -1,0 +1,364 @@
+.pagina-showroom {
+  --bg-main: #050507;
+  --card-bg: #0b0b0e;
+  --input-bg: #070709;
+  --accent-red: #e50914;
+  --text-main: #ffffff;
+  --text-muted: #8e8e93;
+  --border-dark: #1c1c22;
+  --font-serif: "Cinzel", serif;
+  --font-sans: "Plus Jakarta Sans", sans-serif;
+  color: var(--text-main);
+  font-family: var(--font-sans);
+  color-scheme: dark;
+  min-height: calc(100vh - 72px);
+}
+
+/* ==========================================
+   CONTENEDOR PRINCIPAL DEL SHOWROOM
+   ========================================== */
+.pagina-showroom .container {
+  display: flex;
+  gap: 4rem;
+  max-width: 1200px;
+  margin: auto;
+  padding: 3rem 2rem;
+  align-items: center;
+  justify-content: center;
+}
+
+@media (max-width: 900px) {
+  .pagina-showroom .container {
+    flex-direction: column;
+    padding: 1.5rem;
+    gap: 2.5rem;
+  }
+}
+
+/* ==========================================
+   SECCIÓN IZQUIERDA: INFORMACIÓN & SENSOR ROJO
+   ========================================== */
+.pagina-showroom .info-section {
+  flex: 1;
+}
+
+.pagina-showroom .badge-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--accent-red);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  margin-bottom: 1.2rem;
+}
+
+.pagina-showroom .badge-tag::before {
+  content: '';
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  background-color: var(--accent-red);
+  border-radius: 50%;
+}
+
+.pagina-showroom .info-section h1 {
+  font-family: var(--font-serif);
+  font-size: 2.5rem;
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin-bottom: 1.5rem;
+}
+
+.pagina-showroom .description {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin-bottom: 2.5rem;
+  max-width: 480px;
+}
+
+.pagina-showroom .contact-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+/* EFECTO SENSOR AL PASAR EL MOUSE EN UBICACIÓN Y TELÉFONO */
+.pagina-showroom .contact-item {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+  padding: 0.8rem 1rem;
+  border-radius: 12px;
+  border: 1px solid transparent;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+}
+
+.pagina-showroom .contact-item:hover {
+  background: rgba(229, 9, 20, 0.04);
+  border-color: rgba(229, 9, 20, 0.3);
+  transform: translateX(6px);
+  box-shadow: 0 4px 20px rgba(229, 9, 20, 0.15);
+}
+
+.pagina-showroom .icon-box {
+  width: 44px;
+  height: 44px;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--border-dark);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--accent-red);
+  transition: all 0.3s ease;
+}
+
+.pagina-showroom .contact-item:hover .icon-box {
+  background: rgba(229, 9, 20, 0.2);
+  border-color: var(--accent-red);
+  color: #ffffff;
+  box-shadow: 0 0 12px rgba(229, 9, 20, 0.5);
+}
+
+.pagina-showroom .contact-text {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.pagina-showroom .contact-text label {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: var(--accent-red);
+  text-transform: uppercase;
+}
+
+.pagina-showroom .contact-text span {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text-main);
+  transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+
+.pagina-showroom .contact-item:hover .contact-text span {
+  color: var(--accent-red);
+  text-shadow: 0 0 10px rgba(229, 9, 20, 0.4);
+}
+
+/* ==========================================
+   SECCIÓN DERECHA: FORMULARIO
+   ========================================== */
+.pagina-showroom .form-card {
+  flex: 1;
+  max-width: 520px;
+  width: 100%;
+  background-color: var(--card-bg);
+  border: 1px solid var(--border-dark);
+  border-radius: 16px;
+  padding: 2.5rem;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
+  position: relative;
+}
+
+.pagina-showroom .form-card h2 {
+  font-family: var(--font-serif);
+  font-size: 1.5rem;
+  font-weight: 500;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin-bottom: 0.5rem;
+  color: var(--text-main);
+}
+
+.pagina-showroom .subtitle {
+  color: var(--text-muted);
+  font-size: 0.85rem;
+  line-height: 1.4;
+  margin-bottom: 2rem;
+}
+
+.pagina-showroom .form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.2rem;
+  margin-bottom: 1.5rem;
+}
+
+.pagina-showroom .form-group.full {
+  grid-column: span 2;
+}
+
+@media (max-width: 600px) {
+  .pagina-showroom .form-grid {
+    grid-template-columns: 1fr;
+  }
+  .pagina-showroom .form-group.full {
+    grid-column: span 1;
+  }
+}
+
+.pagina-showroom .form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.pagina-showroom .form-group label {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: var(--accent-red);
+  text-transform: uppercase;
+}
+
+.form-group input,
+.pagina-showroom .form-group select {
+  width: 100%;
+  padding: 0.85rem 1rem;
+  background-color: var(--input-bg);
+  border: 1px solid var(--border-dark);
+  border-radius: 8px;
+  color: var(--text-main);
+  font-family: var(--font-sans);
+  font-size: 0.9rem;
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+/* MEJORA CAMPO FECHA Y HORA */
+.pagina-showroom .form-group input[type="datetime-local"] {
+  cursor: pointer;
+  color-scheme: dark;
+}
+
+.pagina-showroom .form-group input[type="datetime-local"]::-webkit-calendar-picker-indicator {
+  cursor: pointer;
+  filter: invert(0.8) sepia(1) saturate(5) hue-rotate(310deg);
+}
+
+.form-group input:focus,
+.pagina-showroom .form-group select:focus {
+  border-color: var(--accent-red);
+  box-shadow: 0 0 0 2px rgba(229, 9, 20, 0.2);
+}
+
+.pagina-showroom .btn-submit {
+  width: 100%;
+  padding: 1rem;
+  background-color: var(--accent-red);
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  font-family: var(--font-sans);
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  transition: background-color 0.2s, transform 0.1s, box-shadow 0.2s;
+  box-shadow: 0 4px 15px rgba(229, 9, 20, 0.3);
+}
+
+.pagina-showroom .btn-submit:hover:not(:disabled) {
+  background-color: #f6121d;
+  box-shadow: 0 6px 20px rgba(229, 9, 20, 0.4);
+}
+
+.pagina-showroom .btn-submit:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.pagina-showroom .security-badge {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  margin-top: 1.2rem;
+  color: var(--text-muted);
+  font-size: 0.75rem;
+}
+
+/* ==========================================
+   MODAL DE CONFIRMACIÓN
+   ========================================== */
+.pagina-showroom .modal-overlay {
+  position: absolute;
+  inset: 0;
+  background-color: rgba(11, 11, 14, 0.95);
+  border-radius: 16px;
+  padding: 2.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+  z-index: 10;
+}
+
+.pagina-showroom .modal-overlay.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.pagina-showroom .check-icon {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background-color: rgba(229, 9, 20, 0.1);
+  border: 1px solid var(--accent-red);
+  color: var(--accent-red);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.2rem;
+}
+
+.pagina-showroom .modal-overlay h3 {
+  font-family: var(--font-serif);
+  font-size: 1.3rem;
+  margin-bottom: 0.8rem;
+  color: var(--text-main);
+}
+
+.pagina-showroom .modal-overlay p {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  line-height: 1.5;
+  margin-bottom: 1.8rem;
+}
+
+.pagina-showroom .modal-overlay p strong {
+  color: var(--text-main);
+}
+
+.pagina-showroom .btn-reset {
+  padding: 0.75rem 1.5rem;
+  background-color: transparent;
+  border: 1px solid var(--border-dark);
+  color: var(--text-main);
+  border-radius: 8px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: border-color 0.2s, background-color 0.2s;
+}
+
+.pagina-showroom .btn-reset:hover {
+  border-color: var(--accent-red);
+  background-color: rgba(229, 9, 20, 0.1);
+}

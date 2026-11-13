@@ -1,0 +1,138 @@
+@use './variables' as *;
+@use './mixins' as *;
+
+// Todo va dentro de .pagina-galeria para que no afecte a otras páginas del sitio.
+.pagina-galeria {
+  min-height: 100vh;
+  font-family: $fuente;
+  background-color: $fondo;
+
+  // ---------- Encabezado ----------
+  .galeria-header {
+    @include colores($fondo-header, $texto);
+    text-align: center;
+    padding: 30px;
+
+    h1 {
+      color: $titulo;
+      font-size: 45px;
+      margin: 0;
+    }
+
+    p {
+      color: $subtitulo;
+      font-size: 18px;
+    }
+  }
+
+  // ---------- Filtro por marca ----------
+  .filtro-marcas {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    padding: 28px 20px 0;
+
+    button {
+      @include colores($fondo-card, $texto);
+      font-family: $fuente;
+      font-size: 15px;
+      font-weight: bold;
+      padding: 8px 18px;
+      border: 2px solid var(--color-marca);
+      border-radius: 999px;
+      cursor: pointer;
+      transition: background-color 0.3s ease, box-shadow 0.3s ease;
+
+      &:hover {
+        background-color: var(--color-marca);
+      }
+
+      &.activo {
+        background-color: var(--color-marca);
+        box-shadow: 0 0 0 2px $texto;
+      }
+
+      &:focus-visible {
+        outline: 2px solid $subtitulo;
+        outline-offset: 3px;
+      }
+    }
+  }
+
+  // ---------- Secciones por marca ----------
+  .seccion-marca h2 {
+    text-align: center;
+    color: $texto;
+    margin-top: 40px;
+    font-size: 30px;
+  }
+
+  .galeria {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 25px;
+    margin: 30px 20px 50px;
+  }
+
+  // ---------- Tarjeta de cada auto ----------
+  .auto {
+    background-color: $fondo-card;
+    border: 3px solid $borde-card;
+    width: 300px;
+    text-align: center;
+    padding-bottom: 15px;
+    overflow: hidden;
+    transition: transform 0.5s ease, box-shadow 0.5s ease;
+
+    &:hover {
+      transform: translateY(-8px);
+      box-shadow: 0px 10px 30px rgba(255, 255, 255, 0.25);
+
+      img {
+        transform: scale(1.12);
+      }
+    }
+
+    img {
+      width: 300px;
+      height: 200px;
+      object-fit: cover;
+      transition: transform 0.6s ease;
+    }
+
+    h3 {
+      font-size: 24px;
+      margin: 10px;
+      color: $texto;
+    }
+
+    // Filas de datos: el fondo es el color de la marca
+    p {
+      @include colores(var(--color-marca), $texto);
+      margin: 0;
+      padding: 10px;
+
+      &:first-of-type {
+        border-radius: 10px 10px 0 0;
+      }
+
+      &:last-of-type {
+        border-radius: 0 0 10px 10px;
+      }
+
+      &.precio {
+        font-weight: bold;
+      }
+    }
+  }
+
+  // ---------- Pie ----------
+  .galeria-footer {
+    @include colores($fondo-header, $texto);
+    text-align: center;
+    padding: 20px;
+    margin-top: 50px;
+  }
+}

@@ -6,6 +6,7 @@ import CardMedia from '@mui/material/CardMedia';
 import CardContent from '@mui/material/CardContent';
 import CardActions from '@mui/material/CardActions';
 import Button from '@mui/material/Button';
+import { Link } from 'react-router-dom';
 import { autos } from '../data';
 
 function Autos() {
@@ -42,7 +43,7 @@ function Autos() {
               <Typography variant="h5">{auto.precio}</Typography>
             </CardContent>
             <CardActions sx={{ px: 2, pb: 3 }}>
-              <Button fullWidth variant="outlined" component="a" href="#contacto">Consultar</Button>
+              <Button fullWidth variant="outlined" component={Link} to="/turno">Consultar</Button>
             </CardActions>
           </Card>
         ))}

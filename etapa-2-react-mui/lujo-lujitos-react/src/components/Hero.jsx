@@ -3,6 +3,7 @@ import Box from '@mui/material/Box';
 import Chip from '@mui/material/Chip';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
+import { Link } from 'react-router-dom';
 import { horarios } from '../data';
 
 function Hero({ sesion, abrirLogin }) {
@@ -30,7 +31,7 @@ function Hero({ sesion, abrirLogin }) {
       }}
     >
       <Box
-        component="video" autoPlay muted loop playsInline poster="/fondo-poster.jpg"
+        component="video" autoPlay muted loop playsInline poster="/pexels-thekameragrapher-33621659.jpg"
         sx={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover', zIndex: -2 }}
       >
         <source src="/11095143-uhd_3840_2160_25fps.mp4" type="video/mp4" />
@@ -63,13 +64,13 @@ function Hero({ sesion, abrirLogin }) {
         </Typography>
 
         <Box sx={{ display: 'flex', flexWrap: 'wrap', alignItems: 'center', gap: 3 }}>
-          <Button variant="contained" size="large" component="a" href="#modelos">
+          <Button variant="contained" size="large" component={Link} to="/galeria">
             Explorar Modelos
           </Button>
           <Button variant="outlined" size="large" onClick={abrirLogin}>
             {sesion ? 'Mi cuenta' : 'Iniciar Sesión'}
           </Button>
-          <Button color="inherit" component="a" href="#modelos">
+          <Button color="inherit" component={Link} to="/galeria">
             Tour Virtual ▶
           </Button>
         </Box>

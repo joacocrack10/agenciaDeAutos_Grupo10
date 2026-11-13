@@ -1,0 +1,33 @@
+﻿{
+  "modelos": [
+    {
+      "id": "1",
+      "nombre": "Amani G-600 Carbon Edition",
+      "precio": "€ 280.000",
+      "imagen": "https://images.unsplash.com/photo-1617814076367-b759c7d7e738?q=80&w=600",
+      "descripcion": "Chasis integral en fibra de carbono autoclave y motor V8 biturbo de 750 CV."
+    },
+    {
+      "id": "2",
+      "nombre": "Amani V-8 Hyperion",
+      "precio": "€ 340.000",
+      "imagen": "https://images.unsplash.com/photo-1544829099-b9a0c07fad1a?q=80&w=600",
+      "descripcion": "Edición limitada con aceleración de 0 a 100 km/h en 2.8 segundos y tracción total."
+    },
+    {
+      "id": "3",
+      "nombre": "Amani Electric Stealth",
+      "precio": "€ 310.000",
+      "imagen": "https://images.unsplash.com/photo-1555215695-3004980ad54e?q=80&w=600",
+      "descripcion": "Arquitectura 100% eléctrica de 800V con autonomía extendida y sistema autónomo."
+    },
+    {
+      "id": "4",
+      "nombre": "Amani GT Superleggera",
+      "precio": "€ 410.000",
+      "imagen": "https://images.unsplash.com/photo-1503376780353-7e6692767b70?q=80&w=600",
+      "descripcion": "Ingeniería aerodinámica activa con interior artesanal en piel Nappa y titanio."
+    }
+  ],
+  "turnos": []
+}

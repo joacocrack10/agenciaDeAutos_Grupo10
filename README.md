@@ -2,7 +2,7 @@
 
 El repositorio guarda el paso a paso. Cada etapa se abre por su cuenta. El orden sale de `git log`: primero el HTML (septiembre y 5 de noviembre de 2026), después React con Material UI (5 de noviembre) y al final la app con React Router y json-server (9 de noviembre).
 
-**Etapa para abrir y correr: `etapa-2-react-mui/lujo-lujitos-react`.** Es la app que reúne el sitio y arranca. La etapa 3 es posterior en el historial, pero su `package.json` está mezclado con los datos de `db.json` y `npm install` no funciona.
+**Etapa para abrir y correr: `etapa-2-react-mui/lujo-lujitos-react`.** Es la app que reúne el sitio. La etapa 3 es la app aparte de turnos, con su propia API.
 
 ```
 cd etapa-2-react-mui/lujo-lujitos-react
@@ -24,7 +24,16 @@ Versión estática.
 
 ## etapa-3-react-router-api
 
-`agencia-autos`. React Router y las citas contra json-server (`db.json`, puerto 4000). Para correrla harían falta `npm install`, `npm run services` y `npm run dev`. Hoy `package.json` no es un manifiesto válido: adentro está el JSON de los modelos. No se reescribió en esta reorganización.
+`agencia-autos`. React Router y las citas en json-server (`db.json`, puerto 4000).
+
+```
+cd etapa-3-react-router-api/agencia-autos
+npm install
+npm run services
+npm run dev
+```
+
+`npm run services` y `npm run dev` van en dos terminales. La primera deja la API en el puerto 4000. La segunda abre la app.
 
 ## archivo
 
